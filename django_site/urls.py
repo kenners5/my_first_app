@@ -9,6 +9,7 @@ urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'django_site.views.home', name='home'),
     # url(r'^django_site/', include('django_site.foo.urls')),
+    url(r'^polls/', include('polls.urls', namespace="polls")),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
@@ -16,3 +17,7 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
 )
+
+handler500 = 'django_site.errors.error500'
+
+# EOF
