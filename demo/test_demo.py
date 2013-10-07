@@ -6,8 +6,8 @@ class DemoModelTests(TestCase):
 
     def test_set_a_thing(self):
         name = "A thing"
-        obj = DemoElement(name)
-        self.assertEquals(name, str(obj))
+        obj = DemoElement.objects.create(thing=name)
+        self.assertEquals(name, unicode(obj))
 
 class DemoDatabaseTests(TestCase):
     def test_no_available_things(self):
