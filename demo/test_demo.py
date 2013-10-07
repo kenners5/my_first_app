@@ -15,5 +15,11 @@ class DemoDatabaseTests(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "No things are available.")
         
+    def test_one_available_things(self):
+        thing1 = DemoElement.objects.create(thing="Thing 1")
+        thing1.save()
+        response = self.client.get('/')
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "1 things are available.")
 
 # EOF
