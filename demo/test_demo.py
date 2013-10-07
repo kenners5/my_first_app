@@ -1,12 +1,12 @@
 from django.test import TestCase
 
-from demo.models import DemoElement
+from demo.models import DemoThing
 
 class DemoModelTests(TestCase):
 
     def test_set_a_thing(self):
         name = "A thing"
-        obj = DemoElement.objects.create(thing=name)
+        obj = DemoThing.objects.create(thing=name)
         self.assertEquals(name, unicode(obj))
 
 class DemoDatabaseTests(TestCase):
@@ -16,7 +16,7 @@ class DemoDatabaseTests(TestCase):
         self.assertContains(response, "No things are available.")
         
     def test_one_available_things(self):
-        thing1 = DemoElement.objects.create(thing="Thing 1")
+        thing1 = DemoThing.objects.create(thing="Thing 1")
         thing1.save()
         response = self.client.get('/')
         self.assertEqual(response.status_code, 200)

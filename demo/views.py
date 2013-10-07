@@ -1,6 +1,6 @@
 from django.views import generic
 
-from demo.models import DemoElement
+from demo.models import DemoThing
 
 class IndexView(generic.ListView):
     template_name = 'demo/index.html'
@@ -10,6 +10,6 @@ class IndexView(generic.ListView):
         """
         Return all the things.
         """
-        return DemoElement.objects.all()
+        return DemoThing.objects.all()
 
 # EOF

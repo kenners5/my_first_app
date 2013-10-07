@@ -1,6 +1,6 @@
 from django.db import models
 
-class DemoElement(models.Model):
+class DemoThing(models.Model):
     thing = models.CharField(max_length=200)
 
     def __unicode__(self):
